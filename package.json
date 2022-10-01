@@ -1,8 +1,12 @@
 {
-  "name": "server",
+  "name": "admin-panel-server",
+  "description": "Admin panel Kinopoisk backend",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "author": {
+    "email": "itsaln23@gmail.com",
+    "name": "Aladin scorp.uz",
+    "url": "https://scorp.uz"
+  },
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
