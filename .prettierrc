@@ -8,22 +8,5 @@
   "jsxSingleQuote": true,
   "bracketSpacing": true,
   "bracketSameLine": false,
-  "jsxBracketSameLine": false,
-  "importOrder": [
-    "<THIRD_PARTY_MODULES>",
-    "^@/components/(.*)$",
-    "^@/screens/(.*)$",
-    "^@/ui/(.*)$",
-    "^@/hooks/(.*)$",
-    "^@/shared/(.*)$",
-    "^@/services/(.*)$",
-    "^@/assets/(.*)$",
-    "^@/utils/(.*)$",
-    "^@/config/(.*)$",
-    "^../(.*)",
-    "^./(.*)",
-    "(.scss)$"
-  ],
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "jsxBracketSameLine": false
 }

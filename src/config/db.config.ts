@@ -9,7 +9,7 @@ export const getSequelizeConfig = async (
 		host: 'localhost',
 		port: configService.get('PORT'),
 		database: configService.get('DATABASE'),
-		username: configService.get('postgres'),
+		username: configService.get('USERNAME'),
 		password: configService.get('PASSWORD'),
 		autoLoadModels: true,
 		synchronize: true
