@@ -47,7 +47,7 @@ export class AuthService {
 	async validateUser(dto: AuthDto) {
 		const user = await this.userModel.findOne({
 			where: { email: dto.email },
-			attributes: ['id', 'email', 'password']
+			attributes: ['id', 'name', 'email', 'avatarPath', 'password']
 		})
 		if (!user) throw new UnauthorizedException('User not found')
 

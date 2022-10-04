@@ -6,7 +6,7 @@ import { ReviewModel } from '@app/review/review.model'
 		attributes: { exclude: ['password'] }
 	}
 })
-export class UserModel extends Model<UserModel> {
+export class UserModel extends Model<UserModel, UserModel> {
 	@Column
 	name: string
 
