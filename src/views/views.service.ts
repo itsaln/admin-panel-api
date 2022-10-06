@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common'
+import * as dayjs from 'dayjs'
+import { Op, fn } from 'sequelize'
 import { InjectModel } from '@nestjs/sequelize'
 import { ViewsModel } from '@app/views/views.model'
-import { Op, fn, col } from 'sequelize'
 
 @Injectable()
 export class ViewsService {
@@ -15,19 +16,17 @@ export class ViewsService {
 			where: {
 				movieId,
 				[Op.and]: [
-					fn('month', col('createAt'), 3)
+					fn('EXTRACT(MONTH from "createdAt") =', dayjs().get('month') + 1)
 				]
 			}
 		})
 
 		if (row) {
-			return this.viewsModel.create({
-				movieId
-			})
+			return row.increment('views')
 		}
 
-		return row.update({
-			views: row.views++
+		return this.viewsModel.create({
+			movieId
 		})
 	}
 }
