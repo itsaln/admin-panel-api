@@ -7,34 +7,34 @@ import { MovieDto } from '@app/movie/dto/movie.dto'
 export class MovieController {
 	constructor(private readonly movieService: MovieService) {}
 
-	@Get()
-	async getAll(@Query('searchTerm') searchTerm?: string) {
-		return this.movieService.getAll(searchTerm)
-	}
-
-	@Get(':id')
-	async getById(@Param('id') id: string) {
-		return this.movieService.getById(+id)
-	}
-
 	@HttpCode(200)
 	@Post()
 	@Auth()
-	async create() {
+	create() {
 		return this.movieService.create()
+	}
+
+	@Get()
+	findAll(@Query('searchTerm') searchTerm?: string) {
+		return this.movieService.findAll(searchTerm)
+	}
+
+	@Get(':id')
+	findOne(@Param('id') id: string) {
+		return this.movieService.findOne(+id)
 	}
 
 	@HttpCode(200)
 	@Put(':id')
 	@Auth()
-	async update(@Param('id') id: string, @Body() dto: MovieDto) {
+	update(@Param('id') id: string, @Body() dto: MovieDto) {
 		return this.movieService.update(+id, dto)
 	}
 
 	@HttpCode(200)
 	@Put(':id')
 	@Auth()
-	async delete(@Param('id') id: string) {
-		return this.movieService.delete(+id)
+	remove(@Param('id') id: string) {
+		return this.movieService.remove(+id)
 	}
 }

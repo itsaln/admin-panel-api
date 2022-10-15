@@ -11,7 +11,7 @@ export class ViewsService {
 		private readonly viewsModel: typeof ViewsModel
 	) {}
 
-	async updateViews(movieId: number) {
+	async update(movieId: number) {
 		const row = await this.viewsModel.findOne({
 			where: {
 				movieId,

@@ -6,12 +6,11 @@ import { ReviewDto } from '@app/review/dto/review.dto'
 @Injectable()
 export class ReviewService {
 	constructor(
-		@InjectModel(ReviewModel)
-		private readonly reviewModel: typeof ReviewModel
+		@InjectModel(ReviewModel) private readonly reviewModel: typeof ReviewModel
 	) {}
 
 	async create(userId: number, dto: ReviewDto) {
-		return this.reviewModel.create({
+		return await this.reviewModel.create({
 			userId,
 			...dto
 		})

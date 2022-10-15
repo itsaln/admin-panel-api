@@ -9,12 +9,16 @@ import { UserModel } from '@app/auth/user.model'
 @Injectable()
 export class MovieService {
 	constructor(
-		@InjectModel(MovieModel)
-		private readonly movieModel: typeof MovieModel
+		@InjectModel(MovieModel) private readonly movieModel: typeof MovieModel
 	) {
 	}
 
-	async getAll(searchTerm?: string) {
+	async create() {
+		const movie = await this.movieModel.create()
+		return movie.id
+	}
+
+	async findAll(searchTerm?: string) {
 		let options: WhereOptions<MovieModel> = {}
 
 		if (searchTerm) {
@@ -37,7 +41,7 @@ export class MovieService {
 
 	}
 
-	async getById(id: number) {
+	async findOne(id: number) {
 		const movie = await this.movieModel.findOne({
 			where: { id },
 			include: [
@@ -52,13 +56,8 @@ export class MovieService {
 		return movie
 	}
 
-	async create() {
-		const movie = await this.movieModel.create()
-		return movie.id
-	}
-
 	async update(id: number, dto: MovieDto) {
-		const movie = await this.getById(id)
+		const movie = await this.findOne(id)
 
 		return movie.update({
 			...movie,
@@ -66,7 +65,7 @@ export class MovieService {
 		})
 	}
 
-	async delete(id: number) {
+	async remove(id: number) {
 		return this.movieModel.destroy({ where: { id } })
 	}
 

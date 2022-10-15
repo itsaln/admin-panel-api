@@ -6,7 +6,7 @@ export class MovieModel extends Model<MovieModel> {
 	@Column({ unique: true })
 	name: string
 
-	@Column({ allowNull: true })
+	@Column({ allowNull: true, type: 'float' })
 	rating: number
 
 	@Column({ defaultValue: '' })

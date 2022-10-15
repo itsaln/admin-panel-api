@@ -8,7 +8,7 @@ export class ViewsController {
 	@UsePipes(new ValidationPipe())
 	@HttpCode(200)
 	@Patch('update/:movieId')
-	async updateViews(@Param('movieId') movieId: string) {
-		return this.viewsService.updateViews(+movieId)
+	update(@Param('movieId') movieId: string) {
+		return this.viewsService.update(+movieId)
 	}
 }

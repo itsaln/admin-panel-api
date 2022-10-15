@@ -11,7 +11,7 @@ export class MediaController {
 	@Post()
 	@Auth()
 	@UseInterceptors(FileInterceptor('media'))
-	async uploadMediaFile(
+	uploadMediaFile(
 		@UploadedFile() mediaFile: Express.Multer.File,
 		@Query('folder') folder?: string
 	) {

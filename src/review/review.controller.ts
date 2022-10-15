@@ -12,7 +12,7 @@ export class ReviewController {
 	@HttpCode(200)
 	@Post()
 	@Auth()
-	async create(@CurrentUser('id') id: string, @Body() dto: ReviewDto) {
+	create(@CurrentUser('id') id: string, @Body() dto: ReviewDto) {
 		return this.reviewService.create(+id, dto)
 	}
 }
