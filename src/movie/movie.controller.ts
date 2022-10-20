@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, Param, Post, Put, Query } from '@nestjs/common'
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, Query } from '@nestjs/common'
 import { MovieService } from '@app/movie/movie.service'
 import { Auth } from '@app/auth/decorators/auth.decorator'
 import { MovieDto } from '@app/movie/dto/movie.dto'
@@ -32,7 +32,7 @@ export class MovieController {
 	}
 
 	@HttpCode(200)
-	@Put(':id')
+	@Delete(':id')
 	@Auth()
 	remove(@Param('id') id: string) {
 		return this.movieService.remove(+id)
