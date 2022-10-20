@@ -51,7 +51,7 @@ export class MovieService {
 				}
 			]
 		})
-		if (!movie) throw new NotFoundException('Video not found')
+		if (!movie) throw new NotFoundException('Movie not found')
 
 		return movie
 	}
@@ -67,11 +67,5 @@ export class MovieService {
 
 	async remove(id: number) {
 		return this.movieModel.destroy({ where: { id } })
-	}
-
-	async updateCountViews(id: number) {
-		// const movie = await this.byId(id)
-		// movie.views++
-		// return this.movieModel.save(movie)
 	}
 }
