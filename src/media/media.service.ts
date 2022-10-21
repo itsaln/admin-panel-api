@@ -21,17 +21,5 @@ export class MediaService {
 			url: `/uploads/${folder}/${mediaFile.originalname}`,
 			name: mediaFile.originalname
 		}
-
-		// const res: IMediaResponse[] = await Promise.all(
-		// 	mediaFile.map(async file => {
-		// 		await writeFile(`${uploadFolder}/${file.originalname}`, file.buffer)
-		// 		return {
-		// 			url: `/uploads/${folder}/${file.originalname}`,
-		// 			name: file.originalname
-		// 		}
-		// 	})
-		// )
-		//
-		// return res
 	}
 }
