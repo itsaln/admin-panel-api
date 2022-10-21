@@ -15,6 +15,6 @@ export class MediaController {
 		@UploadedFile() mediaFile: Express.Multer.File,
 		@Query('folder') folder?: string
 	) {
-		return this.mediaService.saveMedia([mediaFile], folder)
+		return this.mediaService.saveMedia(mediaFile, folder)
 	}
 }
