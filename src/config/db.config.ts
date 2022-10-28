@@ -6,9 +6,9 @@ export const getSequelizeConfig = async (
 ): Promise<SequelizeModuleOptions> => {
 	return {
 		dialect: 'postgres',
-		host: configService.get('DATABASE_URL'),
+		host: configService.get('DB_HOST'),
 		port: configService.get('DB_PORT'),
-		database: configService.get('DB_DATABASE'),
+		database: configService.get('DATABASE_URL'),
 		username: configService.get('DB_USERNAME'),
 		password: configService.get('DB_PASSWORD'),
 		autoLoadModels: true,
