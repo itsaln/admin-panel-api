@@ -7,7 +7,7 @@ import { ReviewModel } from '@app/review/review.model'
 	}
 })
 export class UserModel extends Model<UserModel, UserModel> {
-	@Column
+	@Column({ defaultValue: 'Aladin' })
 	name: string
 
 	@Column({ unique: true })
@@ -16,7 +16,7 @@ export class UserModel extends Model<UserModel, UserModel> {
 	@Column
 	password: string
 
-	@Column({ field: 'avatar_path' })
+	@Column({ field: 'avatar_path', defaultValue: 'defaultUser' })
 	avatarPath: string
 
 	@HasMany(() => ReviewModel)

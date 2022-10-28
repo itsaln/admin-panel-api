@@ -2,7 +2,7 @@ import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/
 import { InjectModel } from '@nestjs/sequelize'
 import { JwtService } from '@nestjs/jwt'
 import { compare, genSalt, hash } from 'bcryptjs'
-import { faker } from '@faker-js/faker'
+// import { faker } from '@faker-js/faker'
 import { UserModel } from '@app/auth/user.model'
 import { AuthDto } from '@app/auth/dto/auth.dto'
 
@@ -32,10 +32,10 @@ export class AuthService {
 		const salt = await genSalt(10)
 
 		const user = await this.userModel.create({
-			name: faker.name.firstName(),
+			name: dto.name,
 			email: dto.email,
 			password: await hash(dto.password, salt),
-			avatarPath: faker.image.avatar()
+			avatarPath: dto.avatarPath
 		})
 
 		return {
