@@ -1,7 +1,6 @@
 import { IsEmail, IsString, MinLength } from 'class-validator'
 
 export class AuthDto {
-	@IsString()
 	name?: string
 
 	@IsEmail()
@@ -13,6 +12,5 @@ export class AuthDto {
 	@IsString()
 	password: string
 
-	@IsString()
 	avatarPath?: string
 }

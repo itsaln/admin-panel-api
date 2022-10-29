@@ -32,10 +32,12 @@ export class AuthService {
 		const salt = await genSalt(10)
 
 		const user = await this.userModel.create({
-			// name: dto.name,
+			// name: faker.name.firstName(),
+			name: dto.name,
 			email: dto.email,
 			password: await hash(dto.password, salt),
-			// avatarPath: dto.avatarPath
+			// avatarPath: faker.image.avatar()
+			avatarPath: dto.avatarPath
 		})
 
 		return {

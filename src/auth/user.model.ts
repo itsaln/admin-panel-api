@@ -16,7 +16,7 @@ export class UserModel extends Model<UserModel, UserModel> {
 	@Column
 	password: string
 
-	@Column({ field: 'avatar_path', defaultValue: 'defaultUser' })
+	@Column({ field: 'avatar_path', defaultValue: '/uploads/icons/user.png' })
 	avatarPath: string
 
 	@HasMany(() => ReviewModel)
