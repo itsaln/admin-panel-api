@@ -1,6 +1,9 @@
 {
   "name": "admin-panel-server",
   "description": "Admin panel Kinopoisk backend",
+  "engines": {
+    "node": "16.18.0"
+  },
   "version": "0.0.1",
   "author": {
     "email": "itsaln23@gmail.com",
