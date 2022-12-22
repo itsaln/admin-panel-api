@@ -1,0 +1,10 @@
+version: '3'
+services:
+  online-cinema.api:
+    image: ghcr.io/itsaln/admin-panel-api/admin-panel:develop
+    container_name: admin-panel
+    restart: always
+    ports:
+      - 5000:5000
+    volumes:
+      - ./.env:/opt/app/.env
